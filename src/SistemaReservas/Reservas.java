@@ -23,6 +23,7 @@ public class Reservas{
     public String getCliente() {
         return cliente;
     }
+    
 
     public void setCliente(String cliente) {
         this.cliente = cliente;
@@ -204,6 +205,72 @@ class Boda extends Evento{
         System.out.println("Tipo de evento: " + getTipoevento());
         System.out.println("Luga de recepcion: " + getLugar());
         int a = getCostoevento() + getServAdicionalFlores() + getServAdicionalMusica();
+        setCostoTotal(a);
+        System.out.println("Precio total: " + getCostoTotal());
+    }
+}
+
+class Concierto extends Evento{
+    private String duracion;
+    private int servAdicionalSeguridad;
+    private int servAdicionalComida;
+    private int costoTotal;
+
+    public Concierto(int id_reserva, String cliente, String fecha, String tipoevento, int costoevento,
+                String duracion, int servAdicionalSeguridad, int servAdicionalComida){
+        super(id_reserva, cliente, fecha, tipoevento, costoevento);
+        this.duracion = duracion;
+        this.servAdicionalSeguridad = servAdicionalSeguridad;
+        this.servAdicionalComida = servAdicionalComida;
+    }
+
+    public String getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(String duracion) {
+        this.duracion = duracion;
+    }
+
+    public int getServAdicionalSeguridad() {
+        return servAdicionalSeguridad;
+    }
+
+    public void setServAdicionalSeguridad(int servAdicionalSeguridad) {
+        this.servAdicionalSeguridad = servAdicionalSeguridad;
+    }
+
+    public int getServAdicionalComida() {
+        return servAdicionalComida;
+    }
+
+    public void setServAdicionalComida(int servAdicionalComida) {
+        this.servAdicionalComida = servAdicionalComida;
+    }
+
+    public int getCostoTotal() {
+        return costoTotal;
+    }
+
+    public void setCostoTotal(int costoTotal) {
+        this.costoTotal = costoTotal;
+    }
+
+    @Override
+    public void calcularCosto(){
+        System.out.println("------------------------------------");
+        System.out.println("Reserva de Concierto");
+        System.out.println("Costo base de Concierto: $1500");
+        System.out.println("Seguridad adicional: $400 adicionales");
+        System.out.println("Stand de comida: $150 adicionales.");
+        System.out.println("------------------------------------");
+        System.out.println("Registro de la reserva:");
+        System.out.println("Numero de reserva: " + getId_reserva());
+        System.out.println("Nombre del cliente: " + getCliente());
+        System.out.println("Fecha de la reserva: " + getFecha());
+        System.out.println("Tipo de evento: " + getTipoevento());
+        System.out.println("Duracion del concierto: " + getDuracion());
+        int a = getCostoevento() + getServAdicionalSeguridad() + getServAdicionalComida();
         setCostoTotal(a);
         System.out.println("Precio total: " + getCostoTotal());
     }
