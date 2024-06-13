@@ -143,3 +143,68 @@ class Conferencia extends Evento{
         System.out.println("Precio total: " + getCostoTotal());
     }
 }
+class Boda extends Evento{
+    private String Lugar;
+    private int servAdicionalMusica;
+    private int servAdicionalFlores;
+    private int costoTotal;
+
+    public Boda(int id_reserva, String cliente, String fecha, String tipoevento, int costoevento,
+                       String lugar, int servAdicionalMusica, int servAdicionalFlores){
+        super(id_reserva, cliente, fecha, tipoevento, costoevento);
+        this.Lugar = lugar;
+        this.servAdicionalMusica = servAdicionalMusica;
+        this.servAdicionalFlores = servAdicionalFlores;
+    }
+
+    public String getLugar() {
+        return Lugar;
+    }
+
+    public void setLugar(String lugar) {
+        Lugar = lugar;
+    }
+
+    public int getServAdicionalMusica() {
+        return servAdicionalMusica;
+    }
+
+    public int getServAdicionalFlores() {
+        return servAdicionalFlores;
+    }
+
+    public void setServAdicionalFlores(int servAdicionalFlores) {
+        this.servAdicionalFlores = servAdicionalFlores;
+    }
+
+    public void setServAdicionalMusica(int servAdicionalMusica) {
+        this.servAdicionalMusica = servAdicionalMusica;
+    }
+
+    public int getCostoTotal() {
+        return costoTotal;
+    }
+
+    public void setCostoTotal(int costoTotal) {
+        this.costoTotal = costoTotal;
+    }
+
+    @Override
+    public void calcularCosto(){
+        System.out.println("------------------------------------");
+        System.out.println("Reserva de Boda");
+        System.out.println("Costo base de Boda: $2000");
+        System.out.println("Decoración floral: $500 adicionales.");
+        System.out.println("Música en vivo: $300 adicionales.");
+        System.out.println("------------------------------------");
+        System.out.println("Registro de la reserva:");
+        System.out.println("Numero de reserva: " + getId_reserva());
+        System.out.println("Nombre del cliente: " + getCliente());
+        System.out.println("Fecha de la reserva: " + getFecha());
+        System.out.println("Tipo de evento: " + getTipoevento());
+        System.out.println("Luga de recepcion: " + getLugar());
+        int a = getCostoevento() + getServAdicionalFlores() + getServAdicionalMusica();
+        setCostoTotal(a);
+        System.out.println("Precio total: " + getCostoTotal());
+    }
+}
