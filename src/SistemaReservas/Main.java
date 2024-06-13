@@ -14,5 +14,6 @@ public class Main {
                 "Concierto", 1500, "3 horas", 400, 150);
 
         co1.calcularCosto();
+        //Menaje
     }
 }
