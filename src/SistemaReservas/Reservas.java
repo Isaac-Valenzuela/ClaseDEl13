@@ -1,4 +1,4 @@
-import javax.naming.spi.ResolveResult;
+package SistemaReservas;
 
 public class Reservas{
     private int id_reserva;
@@ -70,7 +70,7 @@ class Evento extends Reservas{
     public void calcularCosto(){
         System.out.println("------------------------------------");
         System.out.println("Reserva de Conferencia:");
-        System.out.println("Costo base de Conferencia: $1000");
+        System.out.println("Costo base de SistemaReservas.Conferencia: $1000");
         System.out.println("Equipo audiovisual: $100 adicionales");
         System.out.println("Servicio de catering: $200 adicionales");
         System.out.println("------------------------------------");
@@ -83,7 +83,63 @@ class Evento extends Reservas{
         System.out.println("Costo base de Concierto: $1500");
         System.out.println("Seguridad adicional: $400 adicionales");
         System.out.println("Stand de comida: $150 adicionales.");
+        System.out.println("------------------------------------");
     }
 }
 
-class Conferencia extends
+class Conferencia extends Evento{
+    private int numPersonas;
+    private int servAdicionalcat;;
+    private int costoTotal;
+
+    public Conferencia(int id_reserva, String cliente, String fecha, String tipoevento, int costoevento,
+                       int numPersonas, int servAdicionalcat){
+        super(id_reserva, cliente, fecha, tipoevento, costoevento);
+        this.numPersonas = numPersonas;
+        this.servAdicionalcat = servAdicionalcat;
+    }
+
+    public int getNumPersonas() {
+        return numPersonas;
+    }
+
+    public void setNumPersonas(int numPersonas) {
+        this.numPersonas = numPersonas;
+    }
+
+    public int getServAdicionalcat() {
+        return servAdicionalcat;
+    }
+
+    public void setServAdicionalcat(int servAdicionalcat) {
+        this.servAdicionalcat = servAdicionalcat;
+    }
+
+
+    public int getCostoTotal() {
+        return costoTotal;
+    }
+
+    public void setCostoTotal(int costoTotal) {
+        this.costoTotal = costoTotal;
+    }
+
+    @Override
+    public void calcularCosto(){
+        System.out.println("------------------------------------");
+        System.out.println("Reserva de Conferencia:");
+        System.out.println("Costo base de SistemaReservas.Conferencia: $1000");
+        System.out.println("Equipo audiovisual: $100 adicionales");
+        System.out.println("Servicio de catering: $200 adicionales");
+        System.out.println("------------------------------------");
+        System.out.println("Registro de la reserva:");
+        System.out.println("Numero de reserva: " + getId_reserva());
+        System.out.println("Nombre del cliente: " + getCliente());
+        System.out.println("Fecha de la reserva: " + getFecha());
+        System.out.println("Tipo de evento: " + getTipoevento());
+        System.out.println("Numero de personas: " + getNumPersonas());
+        int a = getCostoevento() + getServAdicionalcat();
+        setCostoTotal(a);
+        System.out.println("Precio total: " + getCostoTotal());
+    }
+}
