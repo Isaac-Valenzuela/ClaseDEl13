@@ -10,5 +10,9 @@ public class Main {
                 "Boda", 2000, "Cutuglagua", 300, 500 );
 
         b1.calcularCosto();
+        Concierto co1 = new Concierto(123,"Juanito Perez", "22/22/2050",
+                "Concierto", 1500, "3 horas", 400, 150);
+
+        co1.calcularCosto();
     }
 }
